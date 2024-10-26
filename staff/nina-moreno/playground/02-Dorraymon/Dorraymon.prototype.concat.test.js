@@ -19,7 +19,7 @@ console.log("TEST Dorraymon.prototype.concat");
 
 //The concat() method of Array instances is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
 
-console.log("CASE concat array1 and array2");
+console.log("CASE concat first and second");
 
 var first = new Dorraymon();
 first[0] = 1;
@@ -34,5 +34,4 @@ second.length = 3;
 var third = first.concat(second);
 
 console.log(third);
-//Expected output [1,2,3,4,5,6]
-//END
+//Expected output Dorraymon {0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, length: 6}
