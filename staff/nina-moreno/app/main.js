@@ -1,15 +1,14 @@
 // data
-
 var users = [];
 
 // var body = document.childNodes[1].childNodes[2]
-// var body = document.querySelector('body')
+// var body = document.querySelector("body")
 var body = document.body;
 
-var title = document.createElement("h1"); // new HTMLHeadingElement
-// var titleText = new Text('Hola, App!')
+var title = document.createElement("h1"); //new HTMLHeadingElement
+//  var titleText = new Text("Hola, App!")
 // title.appendChild(titleText)
-title.innerText = "Hola, App!";
+title.innerText = "Hello, App!";
 body.appendChild(title);
 
 // landing
@@ -25,7 +24,7 @@ var landingIntro = document.createElement("p");
 landingView.appendChild(landingIntro);
 
 var landingRegisterLink = document.createElement("a");
-landingRegisterLink.href = "";
+landingRegisterLink.href = " ";
 landingRegisterLink.innerText = "Register";
 landingIntro.appendChild(landingRegisterLink);
 
@@ -40,7 +39,7 @@ var landingIntroOrText = new Text(" or ");
 landingIntro.appendChild(landingIntroOrText);
 
 var landingLoginLink = document.createElement("a");
-landingLoginLink.href = "";
+landingLoginLink.href = " ";
 landingLoginLink.innerText = "Login";
 landingIntro.appendChild(landingLoginLink);
 
@@ -51,7 +50,7 @@ landingLoginLink.onclick = function (event) {
   body.appendChild(loginView);
 };
 
-// register
+//register
 
 var registerView = document.createElement("main");
 
@@ -115,18 +114,28 @@ registerForm.onsubmit = function (event) {
   var username = registerFormUsernameInput.value;
   var password = registerFormPasswordInput.value;
 
-  var user = {};
-  user.name = name;
-  user.email = email;
-  user.username = username;
-  user.password = password;
+  if (name === "" || email === "" || username === "" || password === "") {
+    alert("Complete all the fields");
+  } else {
+    if (users.some((user) => user.email === email)) {
+      alert("This mail already has an account");
+    } else if (users.some((user) => user.username === username)) {
+      alert("This username is taken");
+    } else {
+      var user = {};
+      user.name = name;
+      user.email = email;
+      user.username = username;
+      user.password = password;
 
-  users.push(user);
+      users.push(user);
 
-  registerForm.reset();
+      registerForm.reset();
 
-  body.removeChild(registerView);
-  body.appendChild(loginView);
+      body.removeChild(registerView);
+      body.appendChild(loginView);
+    }
+  }
 };
 
 var registerLoginLink = document.createElement("a");
@@ -138,9 +147,22 @@ registerLoginLink.onclick = function (event) {
 
   body.removeChild(registerView);
   body.appendChild(loginView);
+  registerForm.reset();
 };
 registerView.appendChild(registerLoginLink);
 
+var landingViewLinkFromRegister = document.createElement("a");
+landingViewLinkFromRegister.href = "";
+landingViewLinkFromRegister.innerText = "Return";
+
+landingViewLinkFromRegister.onclick = function (event) {
+  event.preventDefault();
+
+  body.removeChild(registerView);
+  body.appendChild(landingView);
+  registerForm.reset();
+};
+registerView.appendChild(landingViewLinkFromRegister);
 // login
 
 var loginView = document.createElement("main");
@@ -177,8 +199,25 @@ loginFormSubmitButton.type = "submit";
 loginFormSubmitButton.innerText = "Login";
 loginForm.appendChild(loginFormSubmitButton);
 
+var foundedUser = " ";
 loginForm.onsubmit = function (event) {
   event.preventDefault();
+  var loginUsername = loginFormUsernameInput.value;
+  var loginPassword = loginFormPasswordInput.value;
+
+  foundedUser = users.find(
+    (user) => loginUsername === user.username && loginPassword === user.password
+  );
+
+  if (foundedUser === undefined) {
+    alert("Wrong credentials");
+    loginForm.reset();
+  } else {
+    body.removeChild(loginView);
+    //se crea el innerText en la funcion onsubmit, ya que sino no aparece el username ya que se crea a posterior del homeView
+    homeViewTitle.innerText = "Welcome, " + foundedUser.username + "!";
+    body.appendChild(homeView);
+  }
 
   // TODO validate credentials against users db (HINT find). if credentials ok, then go to home. otherwise show alert with "wrong credentials"
 };
@@ -192,5 +231,39 @@ loginRegisterLink.onclick = function (event) {
 
   body.removeChild(loginView);
   body.appendChild(registerView);
+  loginForm.reset();
 };
 loginView.appendChild(loginRegisterLink);
+
+var landingViewLinkFromLogin = document.createElement("a");
+landingViewLinkFromLogin.href = "";
+landingViewLinkFromLogin.innerText = "Return";
+
+landingViewLinkFromLogin.onclick = function (event) {
+  event.preventDefault();
+
+  body.removeChild(loginView);
+  body.appendChild(landingView);
+
+  loginForm.reset();
+};
+loginView.appendChild(landingViewLinkFromLogin);
+
+//home
+
+var homeView = document.createElement("main");
+
+var homeViewTitle = document.createElement("h1");
+homeView.appendChild(homeViewTitle);
+
+var homeViewLinkExit = document.createElement("a");
+homeViewLinkExit.href = " ";
+homeViewLinkExit.innerText = "Exit";
+homeView.appendChild(homeViewLinkExit);
+
+homeViewLinkExit.onclick = function (event) {
+  event.preventDefault();
+
+  body.removeChild(homeView);
+  body.appendChild(landingView);
+};
