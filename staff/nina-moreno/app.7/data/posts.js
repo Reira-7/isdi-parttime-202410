@@ -11,7 +11,7 @@ posts.push({
 
 posts.push({
   id: "m2w92r8h12",
-  author: "m2w92r8h10",
+  author: "2w92r8h10",
   image:
     "https://i.pinimg.com/736x/ce/bf/bd/cebfbd82c7c16013f2053b2e7d437a8f.jpg",
   text: "One girl is more use than twenty boys.",

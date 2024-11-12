@@ -39,15 +39,15 @@ loginForm.onsubmit = function (event) {
   var password = loginFormPasswordInput.value;
 
   try {
-    logic.loginUser(username, password);
+    loginUser(username, password);
 
     loginForm.reset();
 
-    var name = logic.getUserName();
+    var name = getUserName();
 
     homeUser.innerText = "Hello, " + name + "!";
 
-    var posts = logic.getPosts();
+    var posts = getPosts();
 
     homePosts.innerHTML = "";
 
@@ -56,7 +56,7 @@ loginForm.onsubmit = function (event) {
       homePosts.appendChild(homePost);
 
       var postAuthor = document.createElement("h3");
-      postAuthor.innerText = post.author.username;
+      postAuthor.innerText = post.author;
       homePost.appendChild(postAuthor);
 
       var postImage = document.createElement("img");

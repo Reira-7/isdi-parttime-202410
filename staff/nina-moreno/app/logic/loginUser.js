@@ -1,17 +1,18 @@
-function loginUser(username, password) {
-  if (typeof username !== "string") throw new Error("invalid username type");
-  if (username.length < 4) throw new Error("invalid username length");
+(function () {
+  function loginUser(username, password) {
+    validate.username(username);
+    validate.password(password);
 
-  if (typeof password !== "string") throw new Error("invalid password type");
-  if (password.length < 8) throw new Error("invalid password length");
+    var users = JSON.parse(localStorage.users);
 
-  var users = JSON.parse(localStorage.users);
+    var user = users.find(function (user) {
+      return user.username === username && user.password === password;
+    });
 
-  var user = users.find(function (user) {
-    return user.username === username && user.password === password;
-  });
+    if (!user) throw new Error("wrong credentials");
 
-  if (!user) throw new Error("wrong credentials");
+    sessionStorage.userId = user.id;
+  }
 
-  sessionStorage.userId = user.id;
-}
+  logic.loginUser = loginUser;
+})();
