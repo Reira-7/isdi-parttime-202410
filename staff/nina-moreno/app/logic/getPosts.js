@@ -1,24 +1,21 @@
-(function () {
-  function getPosts() {
-    var users = JSON.parse(localStorage.users);
-    var posts = JSON.parse(localStorage.posts);
+logic.getPosts = () => {
+  const users = JSON.parse(localStorage.users);
+  const posts = JSON.parse(localStorage.posts);
 
-    posts.forEach(function (post) {
-      var authorId = post.author;
+  posts.forEach((post) => {
+    const authorId = post.author;
 
-      var user = users.find(function (user) {
-        return user.id === authorId;
-      });
+    const user = users.find((user) => user.id === authorId);
 
-      var username = user.username;
+    const username = user.username;
 
-      post.author = {
-        id: authorId,
-        username: username,
-      };
-    });
+    post.author = {
+      id: authorId,
+      username: username,
+    };
 
-    return posts.reverse();
-  }
-  logic.getPosts = getPosts;
-})();
+    post.own = authorId === sessionStorage.userId;
+  });
+
+  return posts.reverse();
+};
