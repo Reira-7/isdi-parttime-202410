@@ -1,0 +1,30 @@
+[
+  {
+    "id": "abc123",
+    "name": "Peter Pan",
+    "email": "peter@pan.com",
+    "username": "peterpan",
+    "password": "123123123"
+  },
+  {
+    "id": "m41rjo7ulg",
+    "name": "Wendy Darling",
+    "email": "wendy@darling.com",
+    "username": "wendydarling",
+    "password": "123123123"
+  },
+  {
+    "id": "m41rqcbk5lk",
+    "name": "Pepito Grillo",
+    "email": "pepito@grillo.com",
+    "username": "pepitogrillo",
+    "password": "123123123"
+  },
+  {
+    "id": "m45tn53vi5e",
+    "name": "James Hook",
+    "email": "james@hook.com",
+    "username": "jameshook",
+    "password": "123123123"
+  }
+]
