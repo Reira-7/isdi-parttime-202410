@@ -1,14 +1,11 @@
-const localStorage = require("../data/localStorage");
-const sessionStorage = require("../data/sessionStorage");
+const authenticateUser = require("./authenticateUser");
+const getUserName = require("./getUserName");
+const registerUser = require("./registerUser");
 
-const getUserName = () => {
-  const users = JSON.parse(localStorage.users);
-
-  const user = users.find((user) => user.id === sessionStorage.userId);
-
-  if (!user) throw new Error("user not found");
-
-  return user.name;
+const logic = {
+  authenticateUser,
+  getUserName,
+  registerUser,
 };
 
-module.exports = getUserName;
+module.exports = logic;

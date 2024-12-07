@@ -14,6 +14,7 @@ const loginUser = (username, password) => {
   );
 
   if (!user) throw new Error("wrong credentials");
+
   sessionStorage.userId = user.id;
 };
 
