@@ -1,0 +1,65 @@
+[
+  {
+    "id": "m2w92r8h09",
+    "name": "Peter Pan",
+    "email": "peter@pan.com",
+    "username": "peterpan",
+    "password": "123123123"
+  },
+  {
+    "id": "m2w92r8h10",
+    "name": "Wendy Darling",
+    "email": "wendy@darling.com",
+    "username": "wendydarling",
+    "password": "123123123"
+  },
+  {
+    "id": "m3gc0wwt7q",
+    "name": "James Hook",
+    "email": "james@hook.com",
+    "username": "jameshook",
+    "password": "123123123"
+  },
+  {
+    "id": "m3ngm8d7ck",
+    "name": "Pepito Grillo",
+    "email": "pepito@grillo.com",
+    "username": "pepitogrillo",
+    "password": "123123123"
+  },
+  {
+    "id": "m3ngndijfak",
+    "name": "Campa Nilla",
+    "email": "campa@nilla.com",
+    "username": "campanilla",
+    "password": "123123123"
+  },
+  {
+    "id": "m4hfmf7nd4e",
+    "name": "Le Chuga",
+    "email": "le@chuga.com",
+    "username": "lechuga",
+    "password": "123123123"
+  },
+  {
+    "id": "m4hfv7dq5b",
+    "name": "Pa Tata",
+    "email": "pa@tata.com",
+    "username": "patata",
+    "password": "123123123"
+  },
+  {
+    "id": "m4mywj5fwrk",
+    "name": "To Mate",
+    "email": "to@mate.com",
+    "username": "tomate",
+    "password": "123123123"
+  },
+  {
+    "id": "m4myz90gzzd",
+    "name": "Pepi No",
+    "email": "pepi@no.com",
+    "username": "pepino",
+    "password": "123123123"
+  }
+]
